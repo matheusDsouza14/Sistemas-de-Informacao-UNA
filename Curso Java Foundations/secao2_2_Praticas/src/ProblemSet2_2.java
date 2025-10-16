@@ -5,6 +5,6 @@ public class ProblemSet2_2 {
         //A cat
         System.out.println("|\\---/|");
         System.out.println("| o_o  |");
-        System.out.println("\\_^___/");
+        System.out.println("\\_^___/");   
     } 
 }
