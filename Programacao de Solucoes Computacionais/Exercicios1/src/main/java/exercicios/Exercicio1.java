@@ -4,7 +4,7 @@ public class Exercicio1 {
     public void resolve(){
         /*1. Faça um programa que solicite um número inteiro ao
         usuário e calcule o número fatorial desse número.*/
-        Scanner sc = new Scanner();
+        Scanner sc = new Scanner(System.in);
         int num,resultado;
         System.out.println("Digite um numero: ");
         num = sc.nextInt();
@@ -12,6 +12,6 @@ public class Exercicio1 {
         for (int i = num-1;i>=1;i--){
             resultado *=i;
         }
-        System.out.println("O fatorial de: " +  resultado);
+        System.out.println("O fatorial é: " +  resultado);
     }
 }
