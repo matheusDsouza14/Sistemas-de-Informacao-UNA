@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do usuário | BarberConnect</title>
+  <link rel="stylesheet" href="styles.css?v=20260612-agendamento-barbearia-definitivo">
+</head>
+<body class="site-page" data-page="user" data-auth="protected">
+  <header class="header">
+  <a class="logo-ref" href="home.html" data-image-ref="assets/barberconnect-logo-text.png" aria-label="Ir para a página inicial do BarberConnect">
+    <img class="logo-img" src="assets/barberconnect-logo-text.png" alt="Logo BarberConnect">
+  </a>
+  <nav class="header-actions" aria-label="Navegação principal">
+    <a class="nav-button" href="home.html">Home</a>
+    <a class="nav-button" href="appointments.html">Gerenciar agendamentos</a>
+    <a class="nav-button" href="user.html">Perfil</a>
+    <button class="nav-button nav-button-plain" type="button" id="logout-button">Sair</button>
+  </nav>
+</header>
+
+  <main class="main profile-main">
+    <section class="profile-photo-wrap">
+      <a class="image-ref" id="profile-photo-link" href="assets/profile-photo.svg" aria-label="Referência da foto de perfil">
+        <img id="profile-photo-preview" src="assets/profile-photo.svg" alt="Foto de perfil do usuário">
+      </a>
+    </section>
+
+    <section class="profile-user-card" aria-live="polite">
+      <h1>Meu perfil</h1>
+      <p class="profile-user-info">Carregando dados do usuário...</p>
+    </section>
+
+    <section class="profile-editor-card" aria-labelledby="profile-editor-title">
+      <h2 id="profile-editor-title">Editar informações</h2>
+      <p class="form-note">Escolha no menu abaixo qual informação deseja alterar. Ao salvar, os dados são atualizados no banco local do navegador.</p>
+
+      <label class="profile-edit-menu-label" for="profile-edit-menu">O que você deseja editar?</label>
+      <select class="input-field profile-edit-select" id="profile-edit-menu" name="profileEditMenu">
+        <option value="">Selecione uma opção</option>
+        <option value="name">Nome</option>
+        <option value="email">E-mail</option>
+        <option value="cpf">CPF</option>
+        <option value="birthDate">Data de nascimento</option>
+        <option value="profilePhotoUrl">Foto de perfil</option>
+        <option value="password">Senha</option>
+      </select>
+
+      <div class="profile-edit-panels">
+        <form class="profile-edit-panel is-hidden" data-edit-panel="name">
+          <label for="edit-name">Novo nome</label>
+          <input class="input-field" id="edit-name" name="name" type="text" autocomplete="name" required>
+          <p class="form-message" aria-live="polite"></p>
+          <button class="btn submit-btn" type="submit">Salvar nome</button>
+        </form>
+
+        <form class="profile-edit-panel is-hidden" data-edit-panel="email">
+          <label for="edit-email">Novo e-mail</label>
+          <input class="input-field" id="edit-email" name="email" type="email" autocomplete="email" required>
+          <p class="form-message" aria-live="polite"></p>
+          <button class="btn submit-btn" type="submit">Salvar e-mail</button>
+        </form>
+
+        <form class="profile-edit-panel is-hidden" data-edit-panel="cpf">
+          <label for="edit-cpf">Novo CPF</label>
+          <input class="input-field" id="edit-cpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" maxlength="14" placeholder="000.000.000-00" required>
+          <p class="form-message" aria-live="polite"></p>
+          <button class="btn submit-btn" type="submit">Salvar CPF</button>
+        </form>
+
+        <form class="profile-edit-panel is-hidden" data-edit-panel="birthDate">
+          <label for="edit-birth-date">Nova data de nascimento</label>
+          <input class="input-field" id="edit-birth-date" name="birthDate" type="text" inputmode="numeric" autocomplete="bday" maxlength="10" placeholder="DD/MM/AAAA" required>
+          <p class="form-message" aria-live="polite"></p>
+          <button class="btn submit-btn" type="submit">Salvar data</button>
+        </form>
+
+        <form class="profile-edit-panel is-hidden" data-edit-panel="profilePhotoUrl">
+          <label for="edit-profile-photo-url">Caminho ou URL da imagem</label>
+          <input class="input-field" id="edit-profile-photo-url" name="profilePhotoUrl" type="text" placeholder="assets/profile-photo.svg">
+          <p class="form-note">Você pode usar um caminho local, como <code>assets/minha-foto.png</code>, ou uma URL.</p>
+          <p class="form-message" aria-live="polite"></p>
+          <button class="btn submit-btn" type="submit">Salvar foto</button>
+        </form>
+
+        <form class="profile-edit-panel is-hidden" data-edit-panel="password">
+          <label for="edit-current-password">Senha atual</label>
+          <input class="input-field" id="edit-current-password" name="currentPassword" type="password" autocomplete="current-password" required>
+          <label for="edit-new-password">Nova senha</label>
+          <input class="input-field" id="edit-new-password" name="newPassword" type="password" autocomplete="new-password" required>
+          <label for="edit-confirm-password">Confirmar nova senha</label>
+          <input class="input-field" id="edit-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" required>
+          <p class="form-note">A senha deve conter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial.</p>
+          <p class="form-message" aria-live="polite"></p>
+          <button class="btn submit-btn" type="submit">Salvar senha</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-title">Entre em contato conosco</p>
+    <ul class="social-list" aria-label="Redes sociais">
+        <li><a href="#" aria-label="Facebook BarberConnect" data-image-ref="assets/social-facebook.svg"><img class="social-icon-img" src="assets/social-facebook.svg" alt="Facebook"><span>BarberConnect</span></a></li>
+        <li><a href="#" aria-label="LinkedIn BarberConnect" data-image-ref="assets/social-linkedin.svg"><img class="social-icon-img" src="assets/social-linkedin.svg" alt="LinkedIn"><span>BarberConnect</span></a></li>
+        <li><a href="#" aria-label="Instagram @BarberConnect" data-image-ref="assets/social-instagram.svg"><img class="social-icon-img" src="assets/social-instagram.svg" alt="Instagram"><span>@BarberConnect</span></a></li>
+        <li><a href="#" aria-label="X antigo Twitter @BarberConnect" data-image-ref="assets/social-x.svg"><img class="social-icon-img" src="assets/social-x.svg" alt="X antigo Twitter"><span>@BarberConnect</span></a></li>
+      </ul>
+  </footer>
+
+  <script src="js/config.js?v=20260612-agendamento-barbearia-definitivo"></script>
+  <script src="js/api.js?v=20260612-agendamento-barbearia-definitivo"></script>
+  <script src="js/pages.js?v=20260612-agendamento-barbearia-definitivo"></script>
+  <script src="js/user-editor.js?v=20260612-barbearia-agendamento-fix-final"></script>
+</body>
+</html>

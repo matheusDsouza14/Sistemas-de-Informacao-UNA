@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento | BarberConnect</title>
+  <link rel="stylesheet" href="styles.css?v=20260612-agendamento-barbearia-definitivo">
+</head>
+<body class="site-page" data-page="schedule" data-auth="protected">
+  <header class="header">
+  <a class="logo-ref" href="home.html" data-image-ref="assets/barberconnect-logo-text.png" aria-label="Ir para a página inicial do BarberConnect">
+    <img class="logo-img" src="assets/barberconnect-logo-text.png" alt="Logo BarberConnect">
+  </a>
+  <nav class="header-actions" aria-label="Navegação principal">
+    <a class="nav-button" href="home.html">Home</a>
+    <a class="nav-button" href="appointments.html">Gerenciar agendamentos</a>
+    <a class="nav-button" href="user.html">Perfil</a>
+    <button class="nav-button nav-button-plain" type="button" id="logout-button">Sair</button>
+  </nav>
+</header>
+  <main class="main schedule-main">
+    <form class="schedule-panel" id="schedule-form" novalidate>
+      <a class="barber-card" href="assets/barber-photo.svg" aria-label="Referência da foto do barbeiro escolhido">
+        <img src="assets/barber-photo.svg" alt="Foto do barbeiro escolhido">
+        <span>Nome do barbeiro</span>
+      </a>
+      <fieldset class="services">
+        <legend class="sr-only">Serviços</legend>
+        <label class="service-option"><input type="checkbox" name="servico" value="corte">Corte</label>
+        <label class="service-option"><input type="checkbox" name="servico" value="barba">Barba</label>
+        <label class="service-option"><input type="checkbox" name="servico" value="sobrancelha">Sombrancelha</label>
+        <label class="service-option"><input type="checkbox" name="servico" value="hidratacao">Hidratação</label>
+        <label class="service-option"><input type="checkbox" name="servico" value="relaxamento">Relaxamento</label>
+      </fieldset>
+      <section class="calendar-wrap" aria-labelledby="dias">
+        <h1 class="calendar-title" id="dias">Dias Disponiveis</h1>
+        <label class="time-picker">Horário
+          <select class="input-field" id="appointment-time" name="appointmentTime">
+            <option value="09:00">09:00</option>
+            <option value="10:00" selected>10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+          </select>
+        </label>
+        <div class="calendar-legend" aria-label="Legenda do calendário">
+          <span><i class="legend-dot legend-available" aria-hidden="true"></i>Disponível</span>
+          <span><i class="legend-dot legend-unavailable" aria-hidden="true"></i>Indisponível</span>
+        </div>
+        <div class="calendar-grid" role="group" aria-label="Dias disponíveis para agendamento">
+          <p class="empty-state calendar-loading">Carregando calendário...</p>
+        </div>
+      </section>
+      <p class="form-message" aria-live="polite"></p>
+      <button class="btn schedule-submit" type="submit">Concluir agendamento</button>
+    </form>
+  </main>
+  <footer class="footer">
+      <p class="footer-title">Entre em contato conosco</p>
+      <ul class="social-list" aria-label="Redes sociais">
+        <li><a href="#" aria-label="Facebook BarberConnect" data-image-ref="assets/social-facebook.svg"><img class="social-icon-img" src="assets/social-facebook.svg" alt="Facebook"><span>BarberConnect</span></a></li>
+        <li><a href="#" aria-label="LinkedIn BarberConnect" data-image-ref="assets/social-linkedin.svg"><img class="social-icon-img" src="assets/social-linkedin.svg" alt="LinkedIn"><span>BarberConnect</span></a></li>
+        <li><a href="#" aria-label="Instagram @BarberConnect" data-image-ref="assets/social-instagram.svg"><img class="social-icon-img" src="assets/social-instagram.svg" alt="Instagram"><span>@BarberConnect</span></a></li>
+        <li><a href="#" aria-label="X antigo Twitter @BarberConnect" data-image-ref="assets/social-x.svg"><img class="social-icon-img" src="assets/social-x.svg" alt="X antigo Twitter"><span>@BarberConnect</span></a></li>
+      </ul>
+    </footer>
+  <script src="js/config.js?v=20260612-agendamento-barbearia-definitivo"></script>
+  <script src="js/api.js?v=20260612-agendamento-barbearia-definitivo"></script>
+  <script src="js/pages.js?v=20260612-agendamento-barbearia-definitivo"></script>
+</body>
+</html>

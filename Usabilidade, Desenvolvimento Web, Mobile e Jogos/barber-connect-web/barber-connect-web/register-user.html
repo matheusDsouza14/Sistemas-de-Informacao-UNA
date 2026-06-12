@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cadastro de usuário | BarberConnect</title>
+<link href="styles.css?v=20260612-agendamento-barbearia-definitivo" rel="stylesheet"/>
+</head>
+<body class="site-page" data-auth="public" data-page="register-user">
+<header class="header">
+  <a class="logo-ref" href="home.html" data-image-ref="assets/barberconnect-logo-text.png" aria-label="Ir para a página inicial do BarberConnect">
+    <img class="logo-img" src="assets/barberconnect-logo-text.png" alt="Logo BarberConnect">
+  </a>
+  <nav class="header-actions" aria-label="Navegação principal">
+    <a class="nav-button" href="login.html">Login</a>
+  </nav>
+</header>
+<main class="main form-main">
+<form class="form-card" id="register-user-form" novalidate="">
+<input autocomplete="name" class="input-field" name="name" placeholder="Nome" required="" type="text"/>
+<input autocomplete="off" class="input-field" inputmode="numeric" maxlength="14" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="CPF" required="" type="text"/>
+<input autocomplete="email" class="input-field" inputmode="email" name="email" placeholder="Email" required="" title="Digite um e-mail válido contendo @." type="email"/>
+<input autocomplete="bday" class="input-field" inputmode="numeric" maxlength="10" name="birthDate" pattern="\d{2}/\d{2}/\d{4}" placeholder="Data de Nascimento" required="" type="text"/>
+<input aria-describedby="password-rules" autocomplete="new-password" class="input-field" minlength="8" name="password" placeholder="Senha" required="" title="A senha deve conter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial." type="password"/>
+<input aria-describedby="password-rules" autocomplete="new-password" class="input-field" minlength="8" name="confirmPassword" placeholder="Confirmar Senha" required="" title="A senha deve conter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial." type="password"/>
+<p class="form-note password-rules" id="password-rules">Senha: use pelo menos 8 caracteres, 1 letra maiúscula, 1 número e 1 caractere especial.</p><p aria-live="polite" class="form-message"></p>
+<a class="form-link" href="login.html">Já tenho login.</a>
+<button class="btn submit-btn" type="submit">Concluir</button>
+</form>
+</main>
+<footer class="footer">
+<p class="footer-title">Entre em contato conosco</p>
+<ul class="social-list" aria-label="Redes sociais">
+        <li><a href="#" aria-label="Facebook BarberConnect" data-image-ref="assets/social-facebook.svg"><img class="social-icon-img" src="assets/social-facebook.svg" alt="Facebook"><span>BarberConnect</span></a></li>
+        <li><a href="#" aria-label="LinkedIn BarberConnect" data-image-ref="assets/social-linkedin.svg"><img class="social-icon-img" src="assets/social-linkedin.svg" alt="LinkedIn"><span>BarberConnect</span></a></li>
+        <li><a href="#" aria-label="Instagram @BarberConnect" data-image-ref="assets/social-instagram.svg"><img class="social-icon-img" src="assets/social-instagram.svg" alt="Instagram"><span>@BarberConnect</span></a></li>
+        <li><a href="#" aria-label="X antigo Twitter @BarberConnect" data-image-ref="assets/social-x.svg"><img class="social-icon-img" src="assets/social-x.svg" alt="X antigo Twitter"><span>@BarberConnect</span></a></li>
+      </ul>
+</footer>
+<script src="js/config.js?v=20260612-agendamento-barbearia-definitivo"></script>
+<script src="js/api.js?v=20260612-agendamento-barbearia-definitivo"></script>
+<script src="js/pages.js?v=20260612-agendamento-barbearia-definitivo"></script>
+</body>
+</html>

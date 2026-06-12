@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" role="img" aria-label="Editar foto de perfil">
+  <circle cx="250" cy="250" r="245" fill="#b5b5b5"/>
+  <text x="50%" y="51%" dominant-baseline="middle" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#111">Editar foto de perfil</text>
+</svg>

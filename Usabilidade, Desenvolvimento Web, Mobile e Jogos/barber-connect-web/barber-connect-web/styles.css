@@ -1,0 +1,2116 @@
+:root {
+  --green: #124d4a;
+  --available: #14853d;
+  --available-bg: #eaf8ee;
+  --unavailable: #c00000;
+  --unavailable-bg: #fff0f0;
+  --green-soft: #567a78;
+  --gray: #b5b5b5;
+  --field: #eeeeee;
+  --field-text: #9a9a9a;
+  --black: #050505;
+  --white: #ffffff;
+  --shadow: 0 4px 4px rgba(0, 0, 0, 0.22);
+  --radius-sm: 14px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --page-x: clamp(1rem, 2vw, 2rem);
+  --header-h: clamp(9.5rem, 17vw, 14.5rem);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+  color: var(--black);
+  background: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.site-page {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.header {
+  min-height: var(--header-h);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  background: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.85rem, 1.5vw, 1.25rem) var(--page-x);
+}
+
+.logo-ref,
+.image-ref {
+  display: inline-flex;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.logo-img {
+  width: clamp(6.8rem, 11vw, 10.5rem);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  object-fit: contain;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.22));
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: clamp(0.7rem, 1.2vw, 1rem);
+}
+
+.btn,
+.nav-button {
+  border: 0;
+  background: var(--green-soft);
+  color: var(--black);
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.btn:hover,
+.nav-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+.nav-button {
+  font-size: clamp(1.15rem, 2vw, 2rem);
+  padding: clamp(1rem, 1.6vw, 1.35rem) clamp(1.25rem, 2vw, 1.9rem);
+  border-radius: var(--radius-md);
+}
+
+.main {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.header > *,
+.main > *,
+.footer > *,
+.form-card,
+.schedule-panel,
+.appointments-list,
+.appointment-row,
+.profile-options {
+  min-width: 0;
+}
+
+.section-pad {
+  padding: clamp(1.2rem, 2.2vw, 2rem) var(--page-x);
+}
+
+.footer {
+  background: var(--green);
+  color: var(--white);
+  padding: clamp(1.1rem, 2vw, 1.8rem) var(--page-x);
+}
+
+.footer-title {
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.05rem, 2vw, 1.65rem);
+  font-weight: 400;
+}
+
+.social-list {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white);
+  text-decoration: none;
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
+}
+
+.social-icon {
+  width: 1.25em;
+  height: 1.25em;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 0.2em;
+  font-weight: 700;
+  font-size: 0.9em;
+  color: var(--green);
+  background: var(--white);
+  line-height: 1;
+}
+
+.social-icon.circle {
+  border-radius: 999px;
+}
+
+.social-icon.x-icon {
+  color: var(--white);
+  background: transparent;
+  font-size: 1.45em;
+  width: 0.86em;
+}
+
+/* Landing page */
+.landing-main {
+  padding: clamp(1.5rem, 3vw, 2.3rem) var(--page-x) clamp(1.2rem, 3vw, 2rem);
+}
+
+.landing-grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4.25rem) clamp(1.5rem, 3vw, 2rem);
+}
+
+.landing-row {
+  display: grid;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.6rem);
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.landing-row.reverse {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.landing-row.reverse .landing-text {
+  order: 2;
+}
+
+.landing-row.reverse .landing-image {
+  order: 1;
+}
+
+.landing-row p {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.4vw, 2rem);
+  line-height: 1.1;
+  text-align: justify;
+}
+
+.landing-image img {
+  width: clamp(12rem, 22vw, 20rem);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Home page */
+.home-section {
+  padding: clamp(1.1rem, 2vw, 1.6rem) var(--page-x) 0;
+}
+
+.home-section h2 {
+  margin: 0 0 0.3rem;
+  font-size: clamp(1.45rem, 2.5vw, 2.1rem);
+  font-weight: 400;
+}
+
+.shop-carousel {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(0.45rem, 1vw, 0.85rem);
+}
+
+.carousel-btn {
+  width: clamp(2.15rem, 5vw, 3rem);
+  height: clamp(2.15rem, 5vw, 3rem);
+  border: 0;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--black);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus-visible {
+  filter: brightness(1.05);
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+.shop-scroller {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(8.5rem, 38vw, 12.5rem);
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  gap: clamp(0.8rem, 1.2vw, 1rem);
+  padding: 0.25rem 0.15rem 0.85rem;
+  scroll-snap-type: inline mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.shop-scroller::-webkit-scrollbar {
+  height: 0.45rem;
+}
+
+.shop-scroller::-webkit-scrollbar-thumb {
+  background: var(--green-soft);
+  border-radius: 999px;
+}
+
+.shop-card {
+  scroll-snap-align: start;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.shop-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.05rem, 1.7vw, 1.45rem);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+
+.shop-link {
+  width: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.shop-link:focus-visible {
+  outline: 0.2rem solid var(--green-soft);
+  outline-offset: 0.2rem;
+}
+
+.shop-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+/* Forms */
+.form-main {
+  display: grid;
+  place-items: start center;
+  padding: clamp(1.8rem, 4vw, 3.1rem) var(--page-x);
+}
+
+.form-card {
+  width: min(100%, 40rem);
+  display: grid;
+  justify-items: center;
+  gap: clamp(0.75rem, 1.3vw, 1rem);
+}
+
+.input-field {
+  width: 100%;
+  height: clamp(3.45rem, 5vw, 4.4rem);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--field);
+  color: var(--black);
+  box-shadow: var(--shadow);
+  padding: 0 clamp(1rem, 1.6vw, 1.3rem);
+  font-size: clamp(1.45rem, 2.45vw, 2.35rem);
+  outline: 2px solid transparent;
+}
+
+.input-field::placeholder {
+  color: var(--field-text);
+}
+
+.input-field:focus {
+  outline-color: var(--green-soft);
+}
+
+.form-link {
+  color: #005bff;
+  font-size: clamp(1rem, 1.7vw, 1.35rem);
+}
+
+.submit-btn {
+  border-radius: var(--radius-md);
+  padding: clamp(0.9rem, 1.4vw, 1.2rem) clamp(1.3rem, 2vw, 1.8rem);
+  font-size: clamp(1.45rem, 2.25vw, 2rem);
+}
+
+.login-spacer {
+  height: clamp(4rem, 9vw, 7.2rem);
+}
+
+/* Barbershop detail */
+.barbershop-main {
+  padding: clamp(1.5rem, 2.5vw, 2rem) var(--page-x) clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.shop-hero {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  margin-bottom: 1rem;
+}
+
+.shop-hero img {
+  width: min(100%, 27rem);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.shop-name {
+  margin: 0;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  font-weight: 400;
+}
+
+.page-title {
+  margin: 0 0 clamp(0.9rem, 1.7vw, 1.1rem);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.15rem);
+}
+
+.barber-list {
+  display: grid;
+  gap: clamp(0.75rem, 1.4vw, 1.05rem);
+  max-width: 36rem;
+}
+
+.barber-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.2vw, 1rem);
+  width: 100%;
+  min-height: clamp(7rem, 10vw, 9.2rem);
+  border: 1.5px solid var(--black);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.barber-card img {
+  width: clamp(5.8rem, 9vw, 7.5rem);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.barber-card span,
+.barber-name-big {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1;
+}
+
+/* My appointments */
+.appointments-main {
+  padding: clamp(1.6rem, 2.8vw, 2rem) var(--page-x);
+}
+
+.appointments-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 88rem;
+}
+
+.appointment-row {
+  display: grid;
+  grid-template-columns: minmax(0, 40rem) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.appointment-info {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.1;
+}
+
+.appointment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+
+.cancel-appointment-btn {
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  padding: 0.65rem 1rem;
+  background: var(--unavailable);
+  color: var(--white);
+}
+
+.cancel-appointment-btn:hover,
+.cancel-appointment-btn:focus-visible {
+  filter: brightness(0.95);
+}
+
+.appointment-row.is-canceled {
+  opacity: 0.72;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 700;
+}
+
+.status-canceled {
+  background: var(--unavailable-bg);
+  color: var(--unavailable);
+  border: 1px solid var(--unavailable);
+}
+
+/* Payment */
+.payment-main {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: clamp(1.2rem, 2.5vw, 2rem) var(--page-x);
+}
+
+.payment-box h1 {
+  margin: 0 0 clamp(0.8rem, 1.5vw, 1rem);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+}
+
+.payment-box img {
+  width: min(85vw, 30rem);
+  border-radius: var(--radius-lg);
+  object-fit: contain;
+}
+
+/* Schedule */
+.schedule-main {
+  padding: clamp(1.5rem, 2.4vw, 2rem) var(--page-x) clamp(1.6rem, 2.6vw, 2.2rem);
+  display: grid;
+  justify-items: center;
+}
+
+.schedule-panel {
+  width: min(100%, 50rem);
+  display: grid;
+  justify-items: center;
+  gap: clamp(0.8rem, 1.6vw, 1.2rem);
+}
+
+.schedule-panel .barber-card {
+  max-width: 34rem;
+}
+
+.services {
+  width: min(100%, 40rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: clamp(1.5rem, 3vw, 3.1rem);
+  row-gap: 0.45rem;
+}
+
+.service-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.service-option input {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.45rem;
+  background: var(--field);
+  box-shadow: var(--shadow);
+  outline: 1px solid #cfcfcf;
+}
+
+.service-option input:checked {
+  background: var(--green-soft);
+  box-shadow: inset 0 0 0 0.35rem var(--field), var(--shadow);
+}
+
+.calendar-wrap {
+  width: min(100%, 50rem);
+  background: var(--field);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.75rem 0.9rem;
+}
+
+.calendar-title {
+  margin: 0 0 0.3rem;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-weight: 400;
+}
+
+.calendar-grid {
+  width: 100%;
+  max-width: 100%;
+  border: 2.5px solid var(--black);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.calendar-day {
+  min-height: clamp(4.2rem, 10vw, 7rem);
+  display: grid;
+  place-items: center;
+  color: var(--black);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  background: var(--white);
+  border-right: 2.5px solid var(--black);
+  border-bottom: 2.5px solid var(--black);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.calendar-day.is-available:hover,
+.calendar-day.is-available:focus-visible {
+  transform: translateY(-1px);
+}
+
+.calendar-day:nth-child(6n) {
+  border-right: 0;
+}
+
+.calendar-day:nth-last-child(-n + 6) {
+  border-bottom: 0;
+}
+
+.schedule-submit {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  border-radius: 0.75rem;
+  padding: 0.8rem 1.5rem;
+}
+
+/* User profile */
+.profile-main {
+  padding: clamp(2rem, 4vw, 3rem) var(--page-x);
+}
+
+.profile-photo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.profile-photo-wrap img {
+  width: min(70vw, 25rem);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.profile-options {
+  display: grid;
+  gap: clamp(1.2rem, 2vw, 1.6rem);
+}
+
+.profile-option {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+}
+
+.chevron {
+  width: clamp(1.8rem, 3.2vw, 3rem);
+  height: clamp(1.8rem, 3.2vw, 3rem);
+  border-right: clamp(0.35rem, 0.6vw, 0.55rem) solid var(--black);
+  border-bottom: clamp(0.35rem, 0.6vw, 0.55rem) solid var(--black);
+  transform: rotate(45deg) translateY(-0.2rem);
+}
+
+@media (max-width: 900px) {
+  .landing-row,
+  .landing-row.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-row.reverse .landing-text,
+  .landing-row.reverse .landing-image {
+    order: initial;
+  }
+
+  .landing-image {
+    justify-self: center;
+  }
+
+  .appointment-row {
+    grid-template-columns: 1fr;
+    align-items: start;
+    max-width: 42rem;
+  }
+}
+
+
+@media (max-width: 560px) {
+  .shop-carousel {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+
+  .shop-scroller {
+    grid-auto-columns: minmax(7.8rem, 44vw);
+  }
+}
+
+@media (max-width: 680px) {
+  :root {
+    --header-h: auto;
+  }
+
+  .header {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-img {
+    width: 7.2rem;
+  }
+
+  .nav-button {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .barber-card {
+    min-height: 6.5rem;
+  }
+
+  .barber-card span,
+  .barber-name-big {
+    font-size: clamp(1.6rem, 8vw, 2.3rem);
+  }
+
+  .appointments-main .page-title,
+  .barbershop-main .page-title {
+    font-size: 2.15rem;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .calendar-day:nth-child(6n) {
+    border-right: 2.5px solid var(--black);
+  }
+
+  .calendar-day:nth-child(3n) {
+    border-right: 0;
+  }
+
+  .calendar-day:nth-last-child(-n + 6) {
+    border-bottom: 2.5px solid var(--black);
+  }
+
+  .calendar-day:nth-last-child(-n + 3) {
+    border-bottom: 0;
+  }
+
+  .footer-title,
+  .social-list a {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .form-main {
+    place-items: start stretch;
+  }
+
+  .input-field {
+    font-size: 1.15rem;
+  }
+
+  .submit-btn {
+    font-size: 1.2rem;
+  }
+
+  .barber-card {
+    padding: 0.55rem;
+  }
+
+  .barber-card img {
+    width: 4.8rem;
+  }
+
+  .profile-option {
+    font-size: 1.45rem;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --page-x: 0.75rem;
+  }
+
+  .shop-scroller {
+    grid-auto-columns: minmax(7rem, 62vw);
+  }
+
+  .calendar-day {
+    min-height: 3.5rem;
+    font-size: 1.55rem;
+  }
+
+  .profile-option {
+    font-size: 1.25rem;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.payment-status {
+  margin-top: 1rem;
+  color: var(--text-color);
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.payment-status span {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.manual-redirect {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #005cff;
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+}
+
+
+/* Integração com API */
+.header-actions {
+  flex-wrap: wrap;
+}
+
+.nav-button-plain {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.form-message,
+.page-message,
+.empty-state,
+.form-note,
+.profile-user-info,
+.payment-status {
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.35;
+  text-align: center;
+}
+
+.form-message,
+.page-message {
+  min-height: 1.5em;
+  width: min(100%, 42rem);
+  margin-inline: auto;
+  white-space: pre-line;
+}
+
+.form-note,
+.empty-state {
+  color: #333;
+}
+
+.is-error {
+  color: #b00020;
+}
+
+.is-success {
+  color: #0f6b3d;
+}
+
+.is-info {
+  color: #164f4e;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.secondary-btn {
+  margin-top: 0.75rem;
+}
+
+.stacked-forms {
+  gap: 1.5rem;
+}
+
+.time-picker {
+  display: grid;
+  gap: 0.35rem;
+  width: min(100%, 18rem);
+  margin: 0.75rem 0 1rem;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+}
+
+.time-picker .input-field {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.55rem 0.8rem;
+}
+
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+  margin: 0.4rem 0 0.75rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+}
+
+.calendar-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legend-dot {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.legend-available {
+  background: var(--available);
+}
+
+.legend-unavailable {
+  background: var(--unavailable);
+}
+
+.calendar-day.is-available {
+  color: var(--available);
+  background: var(--available-bg);
+}
+
+.calendar-day.is-unavailable {
+  color: var(--unavailable);
+  background: var(--unavailable-bg);
+  cursor: not-allowed;
+}
+
+.calendar-day:disabled {
+  opacity: 1;
+}
+
+.calendar-day.is-selected {
+  outline: 0.25rem solid var(--green);
+  outline-offset: -0.35rem;
+  box-shadow: inset 0 0 0 0.2rem rgba(18, 77, 74, 0.22);
+}
+
+.profile-user-info {
+  margin-top: 1rem;
+}
+
+
+@media (max-width: 560px) {
+  .shop-carousel {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+
+  .shop-scroller {
+    grid-auto-columns: minmax(7.8rem, 44vw);
+  }
+}
+
+@media (max-width: 680px) {
+  .header-actions {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .header-actions .nav-button {
+    padding: 0.65rem 0.9rem;
+    font-size: 1rem;
+  }
+}
+
+
+/* Correção definitiva contra estouro horizontal em telas pequenas */
+html,
+body,
+.site-page {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  overflow-x: clip;
+}
+
+body {
+  position: relative;
+}
+
+* {
+  min-inline-size: 0;
+}
+
+.header,
+.main,
+.footer,
+.section-pad,
+.home-section,
+.landing-main,
+.form-main,
+.barbershop-main,
+.appointments-main,
+.payment-main,
+.schedule-main,
+.profile-main {
+  inline-size: 100%;
+  max-inline-size: 100%;
+}
+
+.header {
+  flex-wrap: wrap;
+}
+
+.header-actions,
+.nav-button,
+.btn,
+.input-field,
+.submit-btn,
+.shop-carousel,
+.shop-scroller,
+.shop-card,
+.barber-card,
+.appointment-row,
+.calendar-wrap,
+.calendar-grid,
+.services,
+.profile-option,
+.payment-box {
+  max-inline-size: 100%;
+}
+
+.nav-button,
+.btn,
+.submit-btn,
+.shop-card h3,
+.appointment-info,
+.appointment-actions,
+.profile-option,
+.form-message,
+.page-message,
+.empty-state,
+.form-note,
+.profile-user-info,
+.payment-status {
+  overflow-wrap: anywhere;
+}
+
+.shop-card h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.image-ref,
+.logo-ref,
+.shop-link {
+  max-inline-size: 100%;
+}
+
+@media (max-width: 680px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding-inline: 0.75rem;
+  }
+
+  .header-actions {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.75rem), 1fr));
+    gap: 0.5rem;
+  }
+
+  .header-actions .nav-button,
+  .header-actions .btn,
+  .header-actions button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.15;
+  }
+
+  .logo-img {
+    width: min(7rem, 45vw);
+  }
+
+  .landing-main,
+  .form-main,
+  .barbershop-main,
+  .appointments-main,
+  .payment-main,
+  .schedule-main,
+  .profile-main,
+  .home-section,
+  .footer {
+    padding-inline: 0.75rem;
+  }
+
+  .landing-row,
+  .landing-row.reverse {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .landing-row p {
+    text-align: left;
+  }
+
+  .shop-carousel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .shop-scroller {
+    grid-auto-columns: minmax(7.5rem, 48vw);
+    padding-inline: 0;
+  }
+
+  .input-field {
+    font-size: clamp(1rem, 5vw, 1.25rem);
+  }
+
+  .barber-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .appointment-row {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --page-x: 0.65rem;
+  }
+
+  .header,
+  .landing-main,
+  .form-main,
+  .barbershop-main,
+  .appointments-main,
+  .payment-main,
+  .schedule-main,
+  .profile-main,
+  .home-section,
+  .footer {
+    padding-inline: 0.65rem;
+  }
+
+  .header-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-scroller {
+    grid-auto-columns: minmax(7rem, 64vw);
+  }
+
+  .calendar-wrap {
+    padding-inline: 0.45rem;
+  }
+}
+
+
+/* Correções finais: calendário completo, cores de disponibilidade e página de gerenciar agendamentos */
+.calendar-loading {
+  grid-column: 1 / -1;
+  padding: 1rem;
+}
+
+.calendar-grid {
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+}
+
+.calendar-day {
+  min-width: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.calendar-grid .calendar-day.is-available {
+  color: var(--available) !important;
+  background: var(--available-bg) !important;
+  cursor: pointer;
+}
+
+.calendar-grid .calendar-day.is-unavailable,
+.calendar-grid .calendar-day:disabled {
+  color: var(--unavailable) !important;
+  background: var(--unavailable-bg) !important;
+  cursor: not-allowed;
+}
+
+.calendar-grid .calendar-day.is-available.is-selected {
+  background: #dff3e5 !important;
+  outline: 0.25rem solid var(--green);
+  outline-offset: -0.35rem;
+  box-shadow: inset 0 0 0 0.2rem rgba(18, 77, 74, 0.22);
+}
+
+.calendar-grid .calendar-day.is-unavailable.is-selected,
+.calendar-grid .calendar-day:disabled.is-selected {
+  outline: none;
+  box-shadow: none;
+}
+
+.legend-dot {
+  flex: 0 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.appointment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+
+.cancel-appointment-btn {
+  background: var(--unavailable) !important;
+  color: var(--white) !important;
+}
+
+.cancel-appointment-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.appointment-row.is-canceled {
+  opacity: 0.72;
+}
+
+.status-canceled {
+  background: var(--unavailable-bg);
+  color: var(--unavailable);
+  border: 1px solid var(--unavailable);
+}
+
+@media (max-width: 680px) {
+  .calendar-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .calendar-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Bordas do calendário alinhadas com a quantidade atual de colunas */
+.calendar-day:nth-child(6n),
+.calendar-day:nth-child(3n),
+.calendar-day:nth-last-child(-n + 6),
+.calendar-day:nth-last-child(-n + 3) {
+  border-right: 2.5px solid var(--black);
+  border-bottom: 2.5px solid var(--black);
+}
+
+.calendar-day:nth-child(7n) {
+  border-right: 0;
+}
+
+.calendar-day:nth-last-child(-n + 7) {
+  border-bottom: 0;
+}
+
+@media (max-width: 680px) {
+  .calendar-day:nth-child(7n),
+  .calendar-day:nth-child(6n),
+  .calendar-day:nth-child(3n),
+  .calendar-day:nth-last-child(-n + 7),
+  .calendar-day:nth-last-child(-n + 6),
+  .calendar-day:nth-last-child(-n + 3) {
+    border-right: 2.5px solid var(--black);
+    border-bottom: 2.5px solid var(--black);
+  }
+
+  .calendar-day:nth-child(4n) {
+    border-right: 0;
+  }
+
+  .calendar-day:nth-last-child(-n + 4) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .calendar-day:nth-child(7n),
+  .calendar-day:nth-child(6n),
+  .calendar-day:nth-child(4n),
+  .calendar-day:nth-last-child(-n + 7),
+  .calendar-day:nth-last-child(-n + 6),
+  .calendar-day:nth-last-child(-n + 4) {
+    border-right: 2.5px solid var(--black);
+    border-bottom: 2.5px solid var(--black);
+  }
+
+  .calendar-day:nth-child(3n) {
+    border-right: 0;
+  }
+
+  .calendar-day:nth-last-child(-n + 3) {
+    border-bottom: 0;
+  }
+}
+
+
+/* =========================================================
+   CORREÇÃO DEFINITIVA DO CALENDÁRIO E GERENCIAMENTO
+   - calendário completo do dia 1 ao último dia do mês
+   - verde para disponível, vermelho para indisponível
+   - botões bloqueados para dias/horários passados
+   ========================================================= */
+.calendar-wrap {
+  width: min(100%, 56rem) !important;
+  overflow: hidden !important;
+}
+
+.calendar-legend {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: .75rem 1.25rem !important;
+  align-items: center !important;
+  margin: .5rem 0 .8rem !important;
+}
+
+.calendar-legend span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: .4rem !important;
+  font-weight: 700 !important;
+}
+
+.legend-dot {
+  width: 1rem !important;
+  height: 1rem !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+  border: 1px solid rgba(0,0,0,.25) !important;
+}
+
+.legend-available { background: #16853b !important; }
+.legend-unavailable { background: #c00000 !important; }
+
+.calendar-grid {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 4px !important;
+  border: 3px solid #050505 !important;
+  border-radius: 18px !important;
+  padding: 4px !important;
+  background: #050505 !important;
+  overflow: hidden !important;
+}
+
+.calendar-day {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: clamp(3.9rem, 10vw, 7rem) !important;
+  aspect-ratio: 1 / 1 !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  font-size: clamp(1.6rem, 4vw, 3rem) !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  transition: transform .15s ease, filter .15s ease, outline-color .15s ease !important;
+}
+
+.calendar-day.is-available,
+.calendar-day.available {
+  background: #16853b !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+}
+
+.calendar-day.is-unavailable,
+.calendar-day.unavailable,
+.calendar-day:disabled {
+  background: #c00000 !important;
+  color: #ffffff !important;
+  cursor: not-allowed !important;
+  opacity: .82 !important;
+}
+
+.calendar-day.is-available:hover,
+.calendar-day.is-available:focus-visible,
+.calendar-day.available:hover,
+.calendar-day.available:focus-visible {
+  filter: brightness(1.08) !important;
+  transform: translateY(-1px) !important;
+}
+
+.calendar-day.is-selected {
+  outline: 5px solid #050505 !important;
+  outline-offset: -9px !important;
+  box-shadow: inset 0 0 0 5px rgba(255,255,255,.55) !important;
+}
+
+.calendar-day:disabled.is-selected,
+.calendar-day.is-unavailable.is-selected,
+.calendar-day.unavailable.is-selected {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.appointment-row {
+  align-items: center !important;
+}
+
+.appointment-actions {
+  margin-top: .75rem !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: .6rem !important;
+}
+
+.cancel-appointment-btn {
+  background: #c00000 !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.cancel-appointment-btn:hover,
+.cancel-appointment-btn:focus-visible {
+  filter: brightness(1.08) !important;
+}
+
+.status-pill.status-canceled {
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 999px !important;
+  padding: .45rem .75rem !important;
+  background: #fff0f0 !important;
+  color: #c00000 !important;
+  border: 1px solid #c00000 !important;
+  font-weight: 700 !important;
+}
+
+@media (max-width: 760px) {
+  .calendar-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .calendar-wrap {
+    padding-inline: .45rem !important;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 3px !important;
+    padding: 3px !important;
+  }
+
+  .calendar-day {
+    min-height: 4.2rem !important;
+    font-size: clamp(1.45rem, 9vw, 2.4rem) !important;
+  }
+}
+
+
+/* =========================================================
+   CORREÇÃO HOME.HTML: sem estouro horizontal + carrosséis reais
+   ========================================================= */
+body[data-page="home"],
+body[data-page="home"] .site-page,
+body[data-page="home"] .main {
+  inline-size: 100% !important;
+  max-inline-size: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+body[data-page="home"] .home-section {
+  inline-size: 100% !important;
+  max-inline-size: 100vw !important;
+  overflow: hidden !important;
+  padding-inline: clamp(.75rem, 2vw, 2rem) !important;
+}
+
+body[data-page="home"] .home-section h2 {
+  max-inline-size: 100% !important;
+  overflow-wrap: anywhere !important;
+}
+
+body[data-page="home"] .shop-carousel {
+  position: relative !important;
+  display: block !important;
+  inline-size: 100% !important;
+  max-inline-size: 100% !important;
+  min-inline-size: 0 !important;
+  overflow: hidden !important;
+  padding-inline: clamp(2.35rem, 5vw, 3.4rem) !important;
+  margin-inline: 0 !important;
+}
+
+body[data-page="home"] .shop-scroller {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  gap: clamp(.75rem, 1.4vw, 1.1rem) !important;
+  inline-size: 100% !important;
+  max-inline-size: 100% !important;
+  min-inline-size: 0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: .35rem .2rem 1rem !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth !important;
+  overscroll-behavior-inline: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+body[data-page="home"] .shop-card {
+  flex: 0 0 clamp(8.5rem, 22vw, 12.75rem) !important;
+  inline-size: clamp(8.5rem, 22vw, 12.75rem) !important;
+  max-inline-size: clamp(8.5rem, 22vw, 12.75rem) !important;
+  min-inline-size: 0 !important;
+  scroll-snap-align: start !important;
+}
+
+body[data-page="home"] .shop-card h3 {
+  inline-size: 100% !important;
+  max-inline-size: 100% !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+body[data-page="home"] .shop-link,
+body[data-page="home"] .shop-card img {
+  inline-size: 100% !important;
+  max-inline-size: 100% !important;
+}
+
+body[data-page="home"] .carousel-btn {
+  display: grid !important;
+  position: absolute !important;
+  z-index: 2 !important;
+  top: 55% !important;
+  transform: translateY(-50%) !important;
+  inline-size: clamp(2rem, 6vw, 3rem) !important;
+  block-size: clamp(2rem, 6vw, 3rem) !important;
+  min-inline-size: 0 !important;
+  padding: 0 !important;
+}
+
+body[data-page="home"] .carousel-prev {
+  inset-inline-start: .1rem !important;
+}
+
+body[data-page="home"] .carousel-next {
+  inset-inline-end: .1rem !important;
+}
+
+body[data-page="home"] .empty-state {
+  flex: 0 0 100% !important;
+  inline-size: 100% !important;
+  max-inline-size: 100% !important;
+}
+
+@media (max-width: 680px) {
+  body[data-page="home"] .home-section {
+    padding-inline: .65rem !important;
+  }
+
+  body[data-page="home"] .shop-carousel {
+    padding-inline: 2.35rem !important;
+  }
+
+  body[data-page="home"] .shop-card {
+    flex-basis: min(56vw, 11rem) !important;
+    inline-size: min(56vw, 11rem) !important;
+    max-inline-size: min(56vw, 11rem) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  body[data-page="home"] .shop-carousel {
+    padding-inline: 2.1rem !important;
+  }
+
+  body[data-page="home"] .shop-card {
+    flex-basis: min(64vw, 10rem) !important;
+    inline-size: min(64vw, 10rem) !important;
+    max-inline-size: min(64vw, 10rem) !important;
+  }
+}
+
+/* =========================================================
+   USER.HTML: dropdowns reais para editar dados do usuário
+   ========================================================= */
+body[data-page="user"] .profile-main {
+  overflow-x: hidden !important;
+}
+
+body[data-page="user"] .profile-user-card {
+  width: min(100%, 48rem);
+  margin: 0 auto clamp(1.5rem, 3vw, 2.25rem);
+  text-align: center;
+}
+
+body[data-page="user"] .profile-user-card h1 {
+  margin: 0 0 .5rem;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 500;
+}
+
+body[data-page="user"] .profile-user-info {
+  margin: 0;
+  line-height: 1.45;
+  text-align: center;
+}
+
+body[data-page="user"] .profile-options {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+}
+
+body[data-page="user"] .profile-edit-dropdown {
+  display: block;
+  border-radius: var(--radius-md);
+  padding: 0;
+}
+
+body[data-page="user"] .profile-edit-dropdown summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  cursor: pointer;
+  padding: .35rem 0;
+  min-width: 0;
+}
+
+body[data-page="user"] .profile-edit-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+body[data-page="user"] .profile-edit-dropdown[open] .chevron {
+  transform: rotate(225deg) translate(-0.2rem, -0.2rem);
+}
+
+body[data-page="user"] .profile-edit-form {
+  width: min(100%, 42rem);
+  margin: .6rem 0 0;
+  padding: clamp(.9rem, 2vw, 1.25rem);
+  display: grid;
+  gap: .65rem;
+  background: #f4f4f4;
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-radius: var(--radius-md);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+}
+
+body[data-page="user"] .profile-edit-form label {
+  font-weight: 700;
+}
+
+body[data-page="user"] .profile-edit-form .input-field {
+  width: 100%;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+body[data-page="user"] .profile-edit-form .submit-btn {
+  justify-self: start;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  padding: .75rem 1.2rem;
+}
+
+body[data-page="user"] .profile-edit-form .form-message,
+body[data-page="user"] .profile-edit-form .form-note {
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  font-size: clamp(.92rem, 1.8vw, 1.05rem);
+}
+
+@media (max-width: 680px) {
+  body[data-page="user"] .profile-options {
+    gap: 1rem;
+  }
+
+  body[data-page="user"] .profile-edit-dropdown summary {
+    font-size: clamp(1.35rem, 7vw, 2.15rem);
+  }
+
+  body[data-page="user"] .profile-edit-form {
+    margin-inline: 0;
+  }
+}
+
+
+/* User.html - menu dropdown real para editar perfil */
+body[data-page="user"] .profile-editor-card {
+  width: min(42rem, 100%);
+  margin: 1.5rem auto 0;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border-radius: 1.4rem;
+  background: var(--surface, #ffffff);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+body[data-page="user"] .profile-editor-card h2 {
+  margin: 0 0 0.5rem;
+  color: var(--green, #124d4a);
+}
+
+body[data-page="user"] .profile-edit-menu-label,
+body[data-page="user"] .profile-edit-panel label {
+  display: block;
+  margin: 0.85rem 0 0.35rem;
+  font-weight: 700;
+  color: var(--green, #124d4a);
+}
+
+body[data-page="user"] .profile-edit-select,
+body[data-page="user"] .profile-edit-panel .input-field {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+body[data-page="user"] .profile-edit-select {
+  cursor: pointer;
+  appearance: auto;
+  -webkit-appearance: menulist;
+}
+
+body[data-page="user"] .profile-edit-panels {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+body[data-page="user"] .profile-edit-panel {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 0.1rem solid rgba(18, 77, 74, 0.16);
+  border-radius: 1rem;
+  background: rgba(246, 246, 246, 0.72);
+  overflow: hidden;
+}
+
+body[data-page="user"] .profile-edit-panel.is-hidden,
+body[data-page="user"] .profile-edit-panel[hidden] {
+  display: none !important;
+}
+
+body[data-page="user"] .profile-edit-panel .submit-btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+body[data-page="user"] .form-message.is-success {
+  color: #137333;
+}
+
+body[data-page="user"] .form-message.is-error {
+  color: #b3261e;
+}
+
+body[data-page="user"] .form-message.is-info {
+  color: var(--muted, #5f666a);
+}
+
+@media (max-width: 560px) {
+  body[data-page="user"] .profile-main {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  body[data-page="user"] .profile-editor-card {
+    width: 100%;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  body[data-page="user"] .profile-edit-panel {
+    padding: 0.85rem;
+  }
+}
+
+
+.status-removal-note {
+  display: block;
+  margin-top: 0.35rem;
+  max-width: 100%;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.72);
+  overflow-wrap: anywhere;
+}
+
+/* Footer social media image icons */
+.footer .social-list {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.footer .social-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.footer .social-icon-img {
+  width: 1.25em;
+  height: 1.25em;
+  flex: 0 0 1.25em;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.footer .social-list span {
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+  .footer .social-list a {
+    font-size: 1rem;
+  }
+
+  .footer .social-icon-img {
+    width: 1.15em;
+    height: 1.15em;
+    flex-basis: 1.15em;
+  }
+}
+
+/* Header logo with BarberConnect wordmark */
+.logo-img {
+  width: clamp(14rem, 28vw, 24rem) !important;
+  max-width: min(100%, 24rem) !important;
+  height: auto !important;
+  max-height: clamp(4.5rem, 8vw, 6.5rem) !important;
+  aspect-ratio: auto !important;
+  border-radius: 18px !important;
+  object-fit: contain !important;
+  background: #ffffff;
+}
+
+.logo-ref {
+  flex: 0 1 auto;
+  max-width: min(100%, 24rem);
+}
+
+@media (max-width: 680px) {
+  .logo-img {
+    width: min(18rem, 88vw) !important;
+    max-height: 5.5rem !important;
+  }
+
+  .logo-ref {
+    max-width: 100%;
+  }
+}
+
+
+/* Ajuste final: logo com texto em todos os cabeçalhos */
+.logo-ref {
+  flex: 0 1 auto !important;
+  inline-size: auto !important;
+  max-inline-size: min(22rem, 100%) !important;
+  align-items: center !important;
+}
+
+.logo-img {
+  display: block !important;
+  inline-size: clamp(11.5rem, 22vw, 20rem) !important;
+  block-size: auto !important;
+  max-inline-size: min(100%, calc(100vw - (var(--page-x) * 2))) !important;
+  max-block-size: 5.75rem !important;
+  aspect-ratio: auto !important;
+  border-radius: 0 !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 680px) {
+  .logo-ref {
+    max-inline-size: 100% !important;
+  }
+
+  .logo-img {
+    inline-size: min(18rem, 82vw) !important;
+    max-block-size: 5.2rem !important;
+  }
+}
+
+/* Ajuste final: informações de local nos agendamentos */
+.appointment-info p {
+  margin: 0 !important;
+}
+
+
+/* Correção definitiva: logo visível em todos os cabeçalhos */
+.header {
+  overflow: visible !important;
+}
+
+.header .logo-ref {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: clamp(12rem, 30vw, 24rem) !important;
+  max-width: calc(100vw - (var(--page-x) * 2)) !important;
+  min-width: 0 !important;
+  text-decoration: none !important;
+}
+
+.header .logo-img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: clamp(4.25rem, 8vw, 6.5rem) !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  border-radius: 0 !important;
+  background: #ffffff !important;
+}
+
+.appointment-info strong {
+  font-weight: 700;
+}
+
+@media (max-width: 680px) {
+  .header .logo-ref {
+    width: min(18rem, 82vw) !important;
+  }
+
+  .header .logo-img {
+    max-height: 5rem !important;
+  }
+}
+
+/* Correção final: botões visíveis em todo o site */
+.header-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex-wrap: wrap !important;
+  gap: clamp(0.5rem, 1.2vw, 1rem) !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.nav-button,
+.btn,
+.carousel-btn,
+.nav-button-plain,
+button.submit-btn,
+button.schedule-submit,
+button.cancel-appointment-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.nav-button[hidden],
+.btn[hidden],
+.carousel-btn[hidden] {
+  display: none !important;
+}
+
+.shop-carousel {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.carousel-btn {
+  width: clamp(2.2rem, 7vw, 3rem) !important;
+  height: clamp(2.2rem, 7vw, 3rem) !important;
+  border-radius: 999px !important;
+  flex: 0 0 auto !important;
+  font-size: clamp(1.3rem, 4vw, 2rem) !important;
+  line-height: 1 !important;
+  z-index: 2 !important;
+}
+
+.shop-scroller {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+@media (max-width: 680px) {
+  .header-actions {
+    justify-content: center !important;
+    width: 100% !important;
+    display: flex !important;
+  }
+
+  .header-actions .nav-button,
+  .header-actions .btn,
+  .header-actions button {
+    flex: 1 1 min(10rem, 100%) !important;
+    width: auto !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+
+  .shop-carousel {
+    grid-template-columns: 2.4rem minmax(0, 1fr) 2.4rem !important;
+  }
+
+  .carousel-btn {
+    display: inline-flex !important;
+  }
+}
+
+/* Correção definitiva: exibição da barbearia em Gerenciar Agendamentos */
+.appointment-details {
+  display: grid;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.appointment-details p {
+  margin: 0;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.appointment-place {
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.75rem;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.appointment-place strong,
+.appointment-place span {
+  color: #103f3c;
+}
+
+.appointment-barber-summary {
+  cursor: default;
+}
